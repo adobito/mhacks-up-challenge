@@ -10,5 +10,8 @@ libraryDependencies ++= Seq(
   jdbc,
   anorm,
   cache,
-  ws
+  ws,
+  "com.google.http-client" % "google-http-client" % "1.19.0",
+  "com.google.code.gson" % "gson" % "2.3",
+  "com.google.http-client" % "google-http-client-gson" % "1.19.0"
 )
