@@ -47,7 +47,7 @@ object Gets extends Controller {
 	def getJawboneUserFromToken(token: String) : Option[UpUser] = {
 	  val headers = new HttpHeaders();
 		headers.setAccept("application/json");
-		headers.setAuthorization("Bearer " + token.trim());
+		headers.setAuthorization("Bearer " + token);
 		val request = RequestFactory.buildGetRequest(new GenericUrl("https://jawbone.com/nudge/api/v.1.1/users/@me"));
 		request.setHeaders(headers);
 		val response = request.execute();
