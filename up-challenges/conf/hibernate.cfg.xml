@@ -14,8 +14,6 @@
         <!-- <property name="connection.password">Pass123!</property>-->
 
         <!-- SQL Azure connection settings -->
-		<property name="connection.url">jdbc:sqlserver://isllu76okc.database.windows.net:1433;database=chinook;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;</property>
-		
 		<property name="connection.url">jdbc:sqlserver://o6c14dgq1e.database.windows.net:1433;database=up-challenges;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";</property>
 		<property name="connection.username">adminuser</property>
 		<property name="connection.password">TV49q3g2wun6Kh9!</property>
