@@ -10,6 +10,7 @@ import dto.moves.Moves
 import play.api.mvc.Action
 import play.api.mvc.Controller
 import dto.user.UpUser
+import scala.util.Try
 
 object Gets extends Controller {
 	val RequestFactory = new NetHttpTransport().createRequestFactory();
@@ -45,12 +46,13 @@ object Gets extends Controller {
 
 	}
 	def getJawboneUserFromToken(token: String) : Option[UpUser] = {
+	  
 	  val headers = new HttpHeaders();
 		headers.setAccept("application/json");
 		headers.setAuthorization("Bearer " + token);
 		val request = RequestFactory.buildGetRequest(new GenericUrl("https://jawbone.com/nudge/api/v.1.1/users/@me"));
 		request.setHeaders(headers);
-		val response = request.execute();
+		val response = Try(request.execute()).getOrElse(return None);
 		val str = response.parseAsString();
 		val upUser = new Gson().fromJson(str, classOf[UpUser]);
 		Option(upUser);
