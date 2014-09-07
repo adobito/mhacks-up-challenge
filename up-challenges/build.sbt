@@ -17,5 +17,6 @@ libraryDependencies ++= Seq(
   "org.hibernate" % "hibernate-core" % "4.3.5.Final",
   "org.hibernate" % "hibernate-c3p0" % "4.3.5.Final",
   "org.hibernate" % "hibernate-ehcache" % "4.3.5.Final",
+  "mysql" % "mysql-connector-java" % "5.1.29",
   "com.microsoft.azure" % "azure-management-sql" % "0.6.0"
 )

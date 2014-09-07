@@ -6,7 +6,8 @@
     <session-factory>
 
         <!-- Database connection settings -->
-        <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- Local database settings (e.g. SQL Express) -->
         <!-- <property name="connection.url">jdbc:sqlserver://localhost:1433;databaseName=Chinook;</property>-->
@@ -18,7 +19,6 @@
 
 
         <!-- SQL dialect -->
-        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
 
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>

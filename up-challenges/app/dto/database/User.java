@@ -21,7 +21,7 @@ public class User {
 		super();
 	}
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.)
 	@Column(name = "ID")
 	public Integer getId() {
 		return id;
