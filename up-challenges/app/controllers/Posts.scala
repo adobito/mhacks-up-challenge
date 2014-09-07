@@ -7,6 +7,8 @@ import dto.database.User
 import play.api.mvc.Action
 import play.api.mvc.Controller
 import org.hibernate.Session
+import com.google.gson.Gson
+import logins.Token
 
 object Posts extends Controller {
 	val RequestFactory = new NetHttpTransport().createRequestFactory();
@@ -22,7 +24,8 @@ object Posts extends Controller {
 	println(request.getUrl().toString());
 	val response = request.execute();
 	println(response.parseAsString());
-	val token = response.parseAsString();
+	
+	val token = new Gson().fromJson(response.parseAsString(),classOf[Token]).getAccessToken();
 	val upUser = Gets.getJawboneUserFromToken(token)
 	if(!Database.userExists(upUser.get.getData().getXid())) {
 	  val user = new User();
