@@ -2,6 +2,7 @@ package dto.database;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -19,6 +20,7 @@ public class User {
 		super();
 	}
 	@Id
+	@GeneratedValue
 	@Column(name = "ID")
 	public Integer getId() {
 		return id;
