@@ -19,30 +19,28 @@ object Posts extends Controller {
 
 
 	def login(code: String) = Action {
-	  
+
 		val request: HttpRequest = RequestFactory.buildGetRequest(new GenericUrl(ExchangeTokenUrl + code));
 	println(request.getUrl().toString());
 	val response = request.execute();
-//	println(response.parseAsString());
+	//	println(response.parseAsString());
 	val responseString = response.parseAsString();
 	println(responseString);
 	val token = new Gson().fromJson(responseString,classOf[Token]).getAccessToken();
-	val upUser = Gets.getJawboneUserFromToken(token)
-	if(!Database.userExists(upUser.get.getData().getXid())) {
-	  val user = new User();
-	  user.setJawboneHash(token);
-	  user.setUserEmail(upUser.get.getData().getFirst());
-	  val session: Session = Database.HibernateService.getCurrentSession(true);
-	  val txn = session.beginTransaction();
-	  session.save(user);	  
-	  txn.commit();
-	  Database.HibernateService.closeSessionIfNecessary(session);
+	val upUser = Gets.getJawboneUserFromToken(token);
+	val user = new User();
+	user.setJawboneHash(token);
+	user.setUserEmail(upUser.get.getData().getFirst());
+	val session: Session = Database.HibernateService.getCurrentSession(true);
+	val txn = session.beginTransaction();
+	session.saveOrUpdate(user);	  
+	txn.commit();
+	Database.HibernateService.closeSessionIfNecessary(session);
+	Ok("");
 	}
-	Ok("")
-	}
-//	def challengeUser(token: String) = Action {
-//	  val user = Database.
-//	
-//	}
+	//	def challengeUser(token: String) = Action {
+	//	  val user = Database.
+	//	
+	//	}
 
 }
