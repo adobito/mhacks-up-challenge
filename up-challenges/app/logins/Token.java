@@ -3,41 +3,41 @@ package logins;
 
 public class Token {
 
-	private String accessToken;
-	private String tokenType;
-	private Integer expiresIn;
-	private String refreshToken;
+	private String access_token;
+	private String token_type;
+	private Integer expires_in;
+	private String refresh_token;
 
 	public String getAccessToken() {
-		return accessToken;
+		return access_token;
 	}
 
 	public void setAccessToken(String accessToken) {
-		this.accessToken = accessToken;
+		this.access_token = accessToken;
 	}
 
 	public String getTokenType() {
-		return tokenType;
+		return token_type;
 	}
 
 	public void setTokenType(String tokenType) {
-		this.tokenType = tokenType;
+		this.token_type = tokenType;
 	}
 
 	public Integer getExpiresIn() {
-		return expiresIn;
+		return expires_in;
 	}
 
 	public void setExpiresIn(Integer expiresIn) {
-		this.expiresIn = expiresIn;
+		this.expires_in = expiresIn;
 	}
 
 	public String getRefreshToken() {
-		return refreshToken;
+		return refresh_token;
 	}
 
 	public void setRefreshToken(String refreshToken) {
-		this.refreshToken = refreshToken;
+		this.refresh_token = refreshToken;
 	}
 
 

@@ -18,11 +18,6 @@
 		<property name="hibernate.connection.username">adminuser</property>
 		<property name="hibernate.connection.password">TV49q3g2wun6Kh9!</property>
 
-        <!-- JDBC connection pool (use C3P0) -->
-		<property name="hibernate.c3p0.min_size">5</property>
-		<property name="hibernate.c3p0.max_size">20</property>
-		<property name="hibernate.c3p0.idle_test_period">60</property>
-		<property name="hibernate.c3p0.max_statements">100</property>
 
         <!-- SQL dialect -->
         <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>

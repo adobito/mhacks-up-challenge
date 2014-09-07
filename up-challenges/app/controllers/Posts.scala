@@ -9,6 +9,7 @@ import play.api.mvc.Controller
 import org.hibernate.Session
 import com.google.gson.Gson
 import logins.Token
+import dto.user.UpUser
 
 object Posts extends Controller {
 	val RequestFactory = new NetHttpTransport().createRequestFactory();
@@ -27,10 +28,13 @@ object Posts extends Controller {
 	val responseString = response.parseAsString();
 	println(responseString);
 	val token = new Gson().fromJson(responseString,classOf[Token]).getAccessToken();
-	val upUser = Gets.getJawboneUserFromToken(token);
+	println("TOKEN: " + token);
+	val upUser = Gets.getJawboneUserFromToken(token).get;
 	val user = new User();
+	println("La la la la" + new Gson().toJson(upUser));
 	user.setJawboneHash(token);
-	user.setUserEmail(upUser.get.getData().getFirst());
+	val email = upUser.getData().getFirst();
+	user.setUserEmail(email);
 	val session: Session = Database.HibernateService.getCurrentSession(true);
 	val txn = session.beginTransaction();
 	session.saveOrUpdate(user);	  

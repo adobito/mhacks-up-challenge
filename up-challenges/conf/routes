@@ -5,18 +5,18 @@
 # Home page
 #Gets
 GET     /                           	controllers.Application.index
-GET		/friends						controllers.Gets.getFriends(token: String)
-GET		/challenges						controllers.Application.index
-GET		/challenges/sent				controllers.Application.index
-GET		/challenges/received			controllers.Application.index
+#GET		/friends						controllers.Gets.getFriends(token: String)
+#GET		/challenges						controllers.Application.index
+#GET		/challenges/sent				controllers.Application.index
+#GET		/challenges/received			controllers.Application.index
 #GET		/challenges/$id<[0-9]+>			controllers.Application.index
-GET		/users							controllers.Application.index
-#GET		/users/$id<[0-9]+>				controllers.Application.index
-GET		/moves							controllers.Gets.moves(startTime: Long, endTime: Long)
+#GET		/users							controllers.Application.index
+##GET		/users/$id<[0-9]+>				controllers.Application.index
+#GET		/moves							controllers.Gets.moves(startTime: Long, endTime: Long)
 
 #Posts
-GET		/login							controllers.Posts.login(code: String)
-POST	/challenges						controllers.Application.index
+POST		/login							controllers.Posts.login(code: String)
+#POST	/challenges						controllers.Application.index
 #POST	/challenges/$id<[0-9]+>/accept	controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
