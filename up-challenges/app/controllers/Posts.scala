@@ -25,6 +25,7 @@ object Posts extends Controller {
 	val response = request.execute();
 //	println(response.parseAsString());
 	val responseString = response.parseAsString();
+	println(responseString);
 	val token = new Gson().fromJson(responseString,classOf[Token]).getAccessToken();
 	val upUser = Gets.getJawboneUserFromToken(token)
 	if(!Database.userExists(upUser.get.getData().getXid())) {
