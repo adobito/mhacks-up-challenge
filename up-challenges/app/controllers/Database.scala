@@ -10,10 +10,10 @@ import dto.database.User
 import org.hibernate.criterion.Restrictions
 
 object Database {
-	Try(Class.forName("com.microsoft.sqlserver.jdbc4.SQLServerDriver"));
-	private val ConnectionString = "jdbc:sqlserver://o6c14dgq1e.database.windows.net:1433;database=up-challenges;user=adminuser@o6c14dgq1e;password=TV49q3g2wun6Kh9;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-
-	val Connection = DriverManager.getConnection(ConnectionString);
+//	Try(Class.forName("com.microsoft.sqlserver.jdbc4.SQLServerDriver"));
+//	private val ConnectionString = "jdbc:sqlserver://o6c14dgq1e.database.windows.net:1433;database=up-challenges;user=adminuser@o6c14dgq1e;password=TV49q3g2wun6Kh9;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+//
+//	val Connection = DriverManager.getConnection(ConnectionString);
 
 
 	def userExists(xid: String): Boolean = {
