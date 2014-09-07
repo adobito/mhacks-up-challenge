@@ -25,7 +25,7 @@
 		<property name="hibernate.c3p0.max_statements">100</property>
 
         <!-- SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
 
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
