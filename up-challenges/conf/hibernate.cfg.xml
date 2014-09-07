@@ -39,9 +39,8 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping resource="Artist.hbm.xml" />
-        <mapping resource="Album.hbm.xml" />
-        <mapping resource="Track.hbm.xml" />
+        <mapping class="dto.database.Challenges" />
+                <mapping class="dto.database.User" />
 
     </session-factory>
 
