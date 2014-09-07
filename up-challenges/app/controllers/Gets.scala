@@ -16,7 +16,7 @@ object Gets extends Controller {
 	val MyMovesUrl = "https://jawbone.com/nudge/api/v.1.1/users/@me/moves?";
 
 
-	def moves(startTime: Long, endTime: Long) = Action {
+	def moves(startTime: Long, endTime: Long, token: String) = Action {
 		val headers = new HttpHeaders();
 		var string = "";
 		if(startTime > 0)
@@ -31,8 +31,8 @@ object Gets extends Controller {
 
 		//    headers.put("Accept",);
 		headers.setAccept("application/json")
-		headers.setAuthorization("Bearer Je5CDuGC9OQ9urzY88Dow33sj6Zc8gyg7w41k9n8ZKgwDHRMyyO4-gGvOtQk8c0J25XGojRIo2GGKC0n7I2ocFECdgRlo_GULMgGZS0EumxrKbZFiOmnmAPChBPDZ5JP")
-		//    headers.put("Authorization","Bearer Je5CDuGC9OQ9urzY88Dow33sj6Zc8gyg7w41k9n8ZKgwDHRMyyO4-gGvOtQk8c0J25XGojRIo2GGKC0n7I2ocFECdgRlo_GULMgGZS0EumxrKbZFiOmnmAPChBPDZ5JP");
+		headers.setAuthorization("Bearer " + token);
+		//    headers.put("Authorization","Bearer " + token);
 		request.setHeaders(headers);
 		val response = request.execute();
 		val str = response.parseAsString();
@@ -47,7 +47,7 @@ object Gets extends Controller {
 	def getJawboneUserFromToken(token: String) : Option[UpUser] = {
 	  val headers = new HttpHeaders();
 		headers.setAccept("application/json");
-		headers.setAuthorization("Bearer " + token);
+		headers.setAuthorization("Bearer " + token.trim());
 		val request = RequestFactory.buildGetRequest(new GenericUrl("https://jawbone.com/nudge/api/v.1.1/users/@me"));
 		request.setHeaders(headers);
 		val response = request.execute();

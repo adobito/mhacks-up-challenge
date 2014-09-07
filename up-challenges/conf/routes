@@ -5,7 +5,7 @@
 # Home page
 #Gets
 GET     /                           	controllers.Application.index
-GET		/friends						controllers.Application.index
+GET		/friends						controllers.Gets.getFriends(token: String)
 GET		/challenges						controllers.Application.index
 GET		/challenges/sent				controllers.Application.index
 GET		/challenges/received			controllers.Application.index

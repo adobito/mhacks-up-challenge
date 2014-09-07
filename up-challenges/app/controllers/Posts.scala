@@ -13,7 +13,7 @@ object Posts extends Controller {
 	val ClientId = "O-2T7gCja9g";
 	val GrantType = "authorization_code";
 	val ClientSecret = "1f276bef0ec2d8d3720530a9a39062be3953499f";
-	val ExchangeTokenUrl = "https://jawbone.com/auth/oauth2/token?client_id=" + ClientId + "&client_secret=" + ClientSecret + "&grant_type=" + GrantType + "code=";
+	val ExchangeTokenUrl = "https://jawbone.com/auth/oauth2/token?client_id=" + ClientId + "&client_secret=" + ClientSecret + "&grant_type=" + GrantType + "&code=";
 
 
 	def login(code: String) = Action {
@@ -36,5 +36,9 @@ object Posts extends Controller {
 	}
 	Ok("")
 	}
+//	def challengeUser(token: String) = Action {
+//	  val user = Database.
+//	
+//	}
 
 }
