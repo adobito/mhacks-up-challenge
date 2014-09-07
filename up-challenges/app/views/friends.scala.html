@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="file:///Users/richard/MHacksIV/FitFight/jquery.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="file:///Users/richard/MHacksIV/FitFight/jquery.datetimepicker.css"/ >
+        
+        <script src="file:///Users/richard/MHacksIV/FitFight/jquery.datetimepicker.js"></script>
+        <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"-->
+        <!--style type="text/css">.well{background-color: white !important;}</style-->
+        <style type="text/css">
+            #website-header{
+                height: 90px;
+                border-bottom: 3px solid #428bca;
+            }
+            #website-logo{
+                position: absolute; 
+                top: 32px;
+                left: 140px;
+            }
+            #user-zone{
+                position: absolute;
+                top: 32px;
+                right: 140px;
+                /* width: 200px; */
+                height: 100px;
+                padding: 0px;
+                text-align: center
+            }
+            .container{
+                padding-top: 15px;
+            }
+            #user-zone #user-name{
+                display: table-cell;
+            }
+            #user-zone #user-picture{
+                display: table-cell;
+            }
+            .friend-selection{
+                display: inline-block;
+                padding: 5px;
+            }
+            input[type="button"] {
+                padding-top: 15px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container" id="website-header">
+            <div class="media" id="website-logo">
+                <a href="/">
+                    <img class="media-object" src="http://placehold.it/200x50" alt="#">
+                </a>
+            </div>
+            <div id="user-zone">
+                <div id="user-name">USER NAME</div>
+                <div class="media" id="user-picture">
+                    <a href="#">
+                        <img class="media-object" src="http://placehold.it/50x50" alt="#">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="challenge-body">
+            <ul class="nav nav-tabs" role="tablist">
+                <li><a href="challenges.html">My Challenges</a></li>
+                <li><a href="newchallenge.html">New Challenge</a></li>
+                <li class="active"><a href="#">Friends</a></li>
+            </ul>
+            <div id="dynamicDiv">
+                <ul class="friend-list">
+                    <li onmouseover="hilight(this.id)" onmouseout="dehilight(this.id)" onmouseup="select(this.id)" class="friend-selection" id="12398572359823">
+
+                             <img src="http://placehold.it/100x100" class="thumbnail img-responsive">
+
+                        <p style='text-align: center'>Name</p>
+                    </li>
+                    <li onmouseover="hilight(this.id)" onmouseout="dehilight(this.id)" onmouseup="select(this.id)" class="friend-selection" id="23415359823">
+
+                             <img src="http://placehold.it/100x100" class="thumbnail img-responsive">
+
+                        <p style='text-align: center'>Name</p>
+                    </li>
+                    <li onmouseover="hilight(this.id)" onmouseout="dehilight(this.id)" onmouseup="select(this.id)" class="friend-selection" id="162113359823">
+
+                             <img src="http://placehold.it/100x100" class="thumbnail img-responsive">
+
+                        <p style='text-align: center'>Name</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    var selectChallengeType = '<form>' +
+                '<input type="radio" name="challengeType" id="r1" value="time">Time Challenge</input><br>' +
+                '<input type="radio" name="challengeType" id="r2" value="benchmark">Benchmark Challenge (FUTURE FEATURE)</input><br>' +
+                '</form>' +
+                '<button type="button" class="btn btn-default btn-lg" onmouseup="chooseChallengeType()">Next</button>';
+
+    var timeTypeChallenge = '<p class="prompt">Get the most steps starting on</p><br>' +
+                '<input id="datetimepickerstart" type="text" ><br>' +
+                '<p class="prompt">by</p><br>' +
+                '<input id="datetimepickerend" type="text" ><br>' +
+                '<button type="button" class="btn btn-default btn-lg" onmouseup="submitChallenge()">Submit</button>'; 
+
+    var benchmarkTypeChallenge = null;
+    var selected = false;
+    var selectedFriendId = 0;
+    var endDate = 'empty';
+    var startDate = 'empty';
+    console.log(selectedFriendId);
+    var timeOrBenchmark = null;
+    function hilight(x) {
+        if(!selected){ 
+            document.getElementById(x).style.backgroundColor = "lightblue";
+        }
+    }
+    function dehilight(x) {
+        if (!selected) {
+            document.getElementById(x).style.backgroundColor = "transparent";
+        }
+    }
+    function select(x) {
+        console.log(selectedFriendId);
+        if(selected){
+            document.getElementById(selectedFriendId).style.backgroundColor = "transparent"
+            document.getElementById(x).style.backgroundColor = "lightblue";
+        }
+        selectedFriendId = x;
+        console.log(selectedFriendId);
+        selected = true;
+    }
+    function chooseFriend() {
+        if(selectedFriendId != null) {
+            document.getElementById("dynamicDiv").innerHTML = "";
+            document.getElementById("dynamicDiv").innerHTML = selectChallengeType;
+        } else {
+            alert("Please choose a friend to challenge!");
+        }
+    }
+    function chooseChallengeType() {
+        if(document.getElementById("r1").checked) {
+            timeOrBenchmark = document.getElementById("r1").value;
+            document.getElementById("dynamicDiv").innerHTML = timeTypeChallenge;
+        } else if(document.getElementById("r2").checked) {
+            timeOrBenchmark = document.getElementById("r2").value;
+            document.getElementById("dynamicDiv").innerHTML = benchmark;
+        }
+        if(timeOrBenchmark == "time") {
+            document.getElementById("dynamicDiv").innerHTML = timeTypeChallenge;
+            jQuery('#datetimepickerstart').datetimepicker();
+            jQuery('#datetimepickerend').datetimepicker();
+        } else if (timeOrBenchmark == "benchmark") {
+            document.getElementById("dynamicDiv").innerHTML = benchmarkTypeChallenge;
+        } else {
+            alert("Please select a challenge type!");
+        }
+    }
+    function submitChallenge() {
+        startDate = document.getElementById("datetimepickerstart").value;
+        endDate = document.getElementById("datetimepickerend").value;
+    }
+    //selectedFriendId = challenged id
+    //timeOrBenchmark = 'time' or 'benchmark' indicated specified challege type
+    //startDate and endDate
+
+</script>

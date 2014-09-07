@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"-->
+		<!--style type="text/css">.well{background-color: white !important;}</style-->
+		<style type="text/css">
+			#website-header{
+				height: 90px;
+				border-bottom: 3px solid #428bca;
+			}
+			#website-logo{
+				position: absolute;
+				top: 32px;
+				left: 140px;
+			}
+			#user-zone{
+				position: absolute;
+				top: 32px;
+				right: 225px;
+				/* width: 200px; */
+				height: 100px;
+				padding: 0px;
+				text-align: center
+			}
+			.container{
+				padding-top: 15px;
+			}
+			#user-zone #user-name{
+				display: table-cell;
+			}
+			#user-zone #user-picture{
+				display: table-cell;
+			}
+			#landing-page-body{
+				background:#ffffff url('http://chicagoraffaello.com/wp-content/uploads/2013/08/iStock_000008256053Large.jpg') no-repeat center center;
+			}
+			.jumbotron {
+   				background: rgba(0, 0, 0, 0); 
+			}
+			.well{
+				width: 33.3333%;
+				text-align: center;
+				display: table-cell;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" id="website-header">
+			<div class="media" id="website-logo">
+				<a href="/">
+					<img class="media-object" src="http://placehold.it/200x50" alt="#">
+				</a>
+			</div>
+			<!--div id="user-zone">
+				<div id="user-name">USER NAME</div>
+				<div class="media" id="user-picture">
+					<a href="#">
+						<img class="media-object" src="#" alt="#">
+					</a>
+				</div>
+			</div-->
+		</div>
+		<div class="container" id="landing-page-body">
+			<div class="jumbotron">
+				<h1>Hey you!</h1>
+			 	<p>Have a Jawbone UP? Connect with your team and challenge your friends to see who comes out on top!</p>
+				<p><a href="https://jawbone.com/auth/oauth2/auth?response_type=code&client_id=O-2T7gCja9g=&scope=move_read%20friends_read&redirect_uri=http://up-challenge.cloudapp.net:9000/login"class="btn btn-primary btn-lg" role="button">Get started</a></p>
+			</div>	
+		</div>
+		<div class="container" id="description">
+			<div class="well">
+				<p>Connect your Jawbone UP account with our services to find your teammates</p>
+				<span class="glyphicon glyphicon-import" style="font-size:48px";></span>
+			</div>
+			<div class="well">
+				<p>Challenge or be challeneged by your teammates to start a competition for a set time or benchmark.</p>
+				<span class="glyphicon glyphicon-flash" style="font-size:48px";></span>
+			</div>
+			<div class="well">
+				<p>Compete to reach an objective first or out-do your opponent in a timed challenge.</p>
+				<span class="glyphicon glyphicon-tasks" style="font-size:48px";></span>
+			</div>
+		</div>
+	</body>
+</html>	

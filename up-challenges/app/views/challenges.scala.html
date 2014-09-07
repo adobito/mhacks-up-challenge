@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"-->
+		<!--style type="text/css">.well{background-color: white !important;}</style-->
+		<style type="text/css">
+			#website-header{
+				height: 90px;
+				border-bottom: 3px solid #428bca;
+			}
+			#website-logo{
+				position: absolute;
+				top: 32px;
+				left: 140px;
+			}
+			#user-zone{
+				position: absolute;
+				top: 32px;
+				right: 140px;
+				/* width: 200px; */
+				height: 100px;
+				padding: 0px;
+				text-align: center
+			}
+			.container{
+				padding-top: 15px;
+			}
+			#user-zone #user-name{
+				display: table-cell;
+			}
+			#user-zone #user-picture{
+				display: table-cell;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container" id="website-header">
+			<div class="media" id="website-logo">
+				<a href="/">
+					<img class="media-object" src="http://placehold.it/200x50" alt="#">
+				</a>
+			</div>
+			<div id="user-zone">
+				<div id="user-name">USER NAME</div>
+				<div class="media" id="user-picture">
+					<a href="#">
+						<img class="media-object" src="http://placehold.it/50x50" alt="#">
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="container" id="challenge-body">
+	      	<ul class="nav nav-tabs" role="tablist">
+	  			<li class="active"><a href="#">My Challenges</a></li>
+	  			<li><a href="newchallenge.html">New Challenge</a></li>
+	  			<li><a href="friends.html">Friends</a></li>
+			</ul>
+			<div class="panel panel-default">
+				<div class="panel-heading">Active Challenges</div>
+				<table class="table">
+					<tr>
+						<th>Challenger</th>
+						<th>Goal</th>
+						<th>Progress</th>
+					</tr>
+					<tr>
+						<th>Bob Samuel</th>
+						<th>Steps by September 9, 2014</th>
+						<th>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+									<span class="sr-only">60% Complete</span>
+								</div>
+							</div>
+						</th>
+						<th>View</th>
+					</tr>
+					<tr>
+						<th>Mary Hu</th>
+						<th>30,000 steps</th>
+						<th>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+									<span class="sr-only">40% Complete</span>
+								</div>
+							</div>
+						</th>
+						<th>View</th>
+					</tr>
+				</table>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">Finished Challenges</div>
+				<table class="table">
+					<tr>
+						<th>Challenger</th>
+						<th>Goal</th>
+						<th>Progress</th>
+					</tr>
+					<tr>
+						<th>Bob Samuel</th>
+						<th>Steps by September 2, 2014</th>
+						<th>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+									<span class="sr-only">60% Complete</span>
+								</div>
+							</div>
+						</th>
+						<th>View</th>
+					</tr>
+					<tr>
+						<th>Mary Hu</th>
+						<th>90,000 steps</th>
+						<th>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+									<span class="sr-only">40% Complete</span>
+								</div>
+							</div>
+						</th>
+						<th>View</th>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
