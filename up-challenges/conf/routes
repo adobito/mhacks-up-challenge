@@ -15,7 +15,7 @@ GET     /                           	controllers.Application.index
 #GET		/moves							controllers.Gets.moves(startTime: Long, endTime: Long)
 
 #Posts
-POST		/login							controllers.Posts.login(code: String)
+GET		/login							controllers.Posts.login(code: String)
 #POST	/challenges						controllers.Application.index
 #POST	/challenges/$id<[0-9]+>/accept	controllers.Application.index
 

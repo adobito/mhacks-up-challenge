@@ -22,12 +22,14 @@ object Database {
 	val result = criteria.uniqueResult().asInstanceOf[User];
 	Option(result).isDefined;
 	}
+	
+	
 	val SessionFactory: SessionFactory = {
 			val configuration = new Configuration()
 					.configure()
-			//		.setProperty("hibernate.connection.url", DatabaseCredentials.Url)
-			//		.setProperty("hibernate.connection.username", DatabaseCredentials.Username)
-			//		.setProperty("hibernate.connection.password", DatabaseCredentials.Password);
+					.setProperty("hibernate.connection.url", "jdbc:sqlserver://o6c14dgq1e.database.windows.net:1433;database=up-challenges;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;")
+					.setProperty("hibernate.connection.username", "adminuser")
+					.setProperty("hibernate.connection.password", "TV49q3g2wun6Kh9");
 			val builder = new StandardServiceRegistryBuilder()
 			.applySettings(configuration.getProperties());
 			val factory = configuration.buildSessionFactory(builder.build());
