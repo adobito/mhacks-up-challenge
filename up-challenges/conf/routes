@@ -5,14 +5,14 @@
 # Home page
 #Gets
 GET     /                           	controllers.Application.index
-GET		/team							controllers.Application.index
+GET		/friends						controllers.Application.index
 GET		/challenges						controllers.Application.index
 GET		/challenges/sent				controllers.Application.index
 GET		/challenges/received			controllers.Application.index
 #GET		/challenges/$id<[0-9]+>			controllers.Application.index
 GET		/users							controllers.Application.index
 #GET		/users/$id<[0-9]+>				controllers.Application.index
-
+GET		/moves							controllers.Gets.moves(startTime: Long, endTime: Long)
 
 #Posts
 GET		/login							controllers.Posts.login(code: String)

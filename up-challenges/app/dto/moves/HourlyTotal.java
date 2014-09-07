@@ -1,7 +1,9 @@
 package dto.moves;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
@@ -14,6 +16,7 @@ private Integer inactiveTime;
 private Integer longestIdleTime;
 private Integer steps;
 private Integer longestActiveTime;
+private Date date;
 private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
 public Integer getDistance() {
@@ -22,6 +25,14 @@ return distance;
 
 public void setDistance(Integer distance) {
 this.distance = distance;
+}
+
+public Date getDate() {
+	return date;
+}
+
+public void setDate(Date date) {
+	this.date = date;
 }
 
 public Integer getActiveTime() {

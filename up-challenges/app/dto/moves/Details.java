@@ -11,13 +11,13 @@ import javax.annotation.Generated;
 public class Details {
 
     private Integer activeTime;
-    private List<List<Integer>> tzs = new ArrayList<List<Integer>>();
+    private List<List<String>> tzs = new ArrayList<List<String>>();
     private Integer inactiveTime;
     private Integer woCount;
     private Integer woLongest;
     private Double bmr;
     private Double bgCalories;
-//    private HourlyTotals hourlyTotals;
+    private List<HourlyTotal> hourlyTotals;
     private Double bmrDay;
     private Integer woActiveTime;
     private Integer sunrise;
@@ -41,11 +41,11 @@ public class Details {
         this.activeTime = activeTime;
     }
 
-    public List<List<Integer>> getTzs() {
+    public List<List<String>> getTzs() {
         return tzs;
     }
 
-    public void setTzs(List<List<Integer>> tzs) {
+    public void setTzs(List<List<String>> tzs) {
         this.tzs = tzs;
     }
 
@@ -97,7 +97,15 @@ public class Details {
 //        this.hourlyTotals = hourlyTotals;
 //    }
 
-    public Double getBmrDay() {
+    public List<HourlyTotal> getHourlyTotals() {
+		return hourlyTotals;
+	}
+
+	public void setHourlyTotals(List<HourlyTotal> hourlyTotals) {
+		this.hourlyTotals = hourlyTotals;
+	}
+
+	public Double getBmrDay() {
         return bmrDay;
     }
 
