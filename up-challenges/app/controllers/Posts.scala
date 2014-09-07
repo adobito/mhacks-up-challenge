@@ -39,7 +39,7 @@ object Posts extends Controller {
 	val txn = session.beginTransaction();
 	session.saveOrUpdate(user);	  
 	txn.commit();
-	Database.HibernateService.closeSessionIfNecessary(session);
+	session.close();
 	Ok("");
 	}
 	//	def challengeUser(token: String) = Action {
