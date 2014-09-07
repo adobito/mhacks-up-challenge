@@ -24,7 +24,7 @@ object Database {
 	}
 	val SessionFactory: SessionFactory = {
 			val configuration = new Configuration()
-			//		.configure()
+					.configure()
 			//		.setProperty("hibernate.connection.url", DatabaseCredentials.Url)
 			//		.setProperty("hibernate.connection.username", DatabaseCredentials.Username)
 			//		.setProperty("hibernate.connection.password", DatabaseCredentials.Password);
