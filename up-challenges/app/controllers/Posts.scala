@@ -23,7 +23,7 @@ object Posts extends Controller {
 		val request: HttpRequest = RequestFactory.buildGetRequest(new GenericUrl(ExchangeTokenUrl + code));
 	println(request.getUrl().toString());
 	val response = request.execute();
-	println(response.parseAsString());
+//	println(response.parseAsString());
 	
 	val token = new Gson().fromJson(response.parseAsString(),classOf[Token]).getAccessToken();
 	val upUser = Gets.getJawboneUserFromToken(token)
