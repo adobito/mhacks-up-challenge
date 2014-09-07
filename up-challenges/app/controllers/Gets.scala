@@ -1,16 +1,20 @@
 package controllers
 
 import java.util.Date
+
 import scala.collection.JavaConversions.asScalaBuffer
+import scala.util.Try
+
 import com.google.api.client.http.GenericUrl
 import com.google.api.client.http.HttpHeaders
 import com.google.api.client.http.javanet.NetHttpTransport
 import com.google.gson.Gson
+
+import dto.database.User
 import dto.moves.Moves
+import dto.user.UpUser
 import play.api.mvc.Action
 import play.api.mvc.Controller
-import dto.user.UpUser
-import scala.util.Try
 
 object Gets extends Controller {
 	val RequestFactory = new NetHttpTransport().createRequestFactory();
@@ -57,16 +61,16 @@ object Gets extends Controller {
 		val upUser = new Gson().fromJson(str, classOf[UpUser]);
 		Option(upUser);
 	}
-//	def getFriends(token: String): User = {
-//	  val headers = new HttpHeaders();
-//	  headers.setAccept("application/json");
-//		headers.setAuthorization("Bearer " + token);
-//		val request = RequestFactory.buildGetRequest(new GenericUrl("https://jawbone.com/nudge/api/v.1.1/users/@me/friends"));
-//		val request.setHeaders(headers);
-//		val response = request.execute();
-//		val str  = response.parseAsString();
-//		
-//	  
-//	}
+	def getFriends(token: String) = Action {
+	  val headers = new HttpHeaders();
+	  headers.setAccept("application/json");
+		headers.setAuthorization("Bearer " + token);
+		val request = RequestFactory.buildGetRequest(new GenericUrl("https://jawbone.com/nudge/api/v.1.1/users/@me/friends"));
+		request.setHeaders(headers);
+		val response = request.execute();
+		val str  = response.parseAsString();
+		Ok(str);
+		
+	}
 
 }
